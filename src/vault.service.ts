@@ -33,8 +33,8 @@ export class VaultService {
         await this.vault.setValue(key, value);
     }
 
-    public async get(key: string) {
-        await this.vault.getValue(key);
+    public async get(key: string): Promise<string | null> {
+        return await this.vault.getValue<string>(key);
     }
 
     public async lock() {
